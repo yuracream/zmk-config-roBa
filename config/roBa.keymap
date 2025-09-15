@@ -9,8 +9,8 @@
 };
 
 &trackball {
-    automouse-layer = <4>;
-    scroll-layers = <5>;
+    // automouse-layer = <4>; //edited by yura 20250915
+    //scroll-layers = <5>; //edited by yura 20250915
 
     // arrows {
     //     layers = <3>;
