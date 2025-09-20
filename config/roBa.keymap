@@ -79,9 +79,9 @@
 
         FUNCTION {
             bindings = <
-&kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)   &kp LS(N5)                            &kp PLUS        &kp PIPE              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
+&kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)   &kp LS(NUMBER_5)                            &kp PLUS        &kp PIPE              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
 &kp SEMICOLON     &kp COLON         &kp SQT           &kp DOUBLE_QUOTES  &kp GRAVE   &trans      &kp ASTERISK  &kp MINUS       &kp SLASH             &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans
-&trans            &trans            &trans            &trans             &kp TILDE   &trans      &trans        &kp UNDERSCORE  &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
+&kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)             &kp TILDE   &trans      &trans        &kp UNDERSCORE  &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
 &trans            &trans            &trans            &trans             &trans      &trans      &trans        &trans                                                                             &trans
             >;
         };
