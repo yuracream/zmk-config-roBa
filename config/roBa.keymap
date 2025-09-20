@@ -74,18 +74,30 @@
             >;
             label = "CONV_ASCII_MAC";
         };
+
+        /* ▼ mac用：タップで“その場をF6でひらがな変換”→かな固定（LANG1/KANA） */
+        conv_hiragana_mac: conv_hiragana_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp F6
+                &kp LANG1
+            >;
+            label = "CONV_HIRAGANA_MAC";
+        };
         /* ▲ */
     };
 
     keymap {
         compatible = "zmk,keymap";
 
+        /* ====== デフォルト層（アルファは不変更） ====== */
         default_layer {
             bindings = <
-&kp W                  &kp E         &kp R             &kp T           &kp Y                                                            &kp Y           &kp U  &kp I      &kp O    &kp P
-&kp A                  &kp S         &kp D             &kp F           &kp G        &kp H                       &lt_to_layer_0 4 SLASH  &kp H           &kp J  &kp K      &kp L    &kp MINUS
-&mt LSHIFT Z           &kp X         &kp C             &kp V           &kp B        &lt_to_layer_0 6 COLON      &kp B                   &kp N           &kp M  &kp COMMA  &kp DOT  &mt RSHIFT SLASH
-&mt LGUI CAPSLOCK      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mo 1                       &kp ENTER               &kp LANG1                                 &lt 5 ESCAPE
+&kp W                  &kp E         &kp R             &kp T           &kp Y                                                            &kp Y           &kp U   &kp I      &kp O    &kp P
+&kp A                  &kp S         &kp D             &kp F           &kp G        &kp H                       &kp BACKSPACE           &kp H           &kp J   &kp K      &kp L    &kp MINUS
+&mt LSHIFT Z           &kp X         &kp C             &kp V           &kp B        &lt_to_layer_0 6 COLON      &kp B                   &kp N           &kp M   &kp COMMA  &kp DOT  &lt_to_layer_0 4 SLASH
+&mt LGUI CAPSLOCK      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mo 1                       &kp ENTER               &conv_hiragana_mac                         &lt 5 ESCAPE
             >;
         };
 
@@ -127,11 +139,12 @@
             >;
         };
 
+        /* ====== SCROLL層（速度トグル追加） ====== */
         SCROLL {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &tog 6  &trans  &trans   /* ← ここでレイヤ6をトグル＝高速化フラグ */
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
         };
@@ -155,20 +168,28 @@
         };
     };
 
-    /* ▼▼ ここが追加分：トラボのXY→スクロール変換（SCROLL=レイヤー5の間だけ） ▼▼ */
-
+    /* ▼▼ 入力リスナ：XY→スクロール変換（レイヤ5=低速 / レイヤ6=高速“加算”） ▼▼ */
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        scroller {
-            layers = <5>;                            /* ← SCROLL の層番号に合わせる */
+        /* 低速（デフォルト） */
+        scroller_slow {
+            layers = <5>;
             input-processors = <&zip_xy_to_scroll_mapper>;
+            /* 必要なら↓にスケール等のプロパティを追加
+               // e.g., xy-to-scroll-scale = <1>;
+            */
+        };
 
-            /* さらに別のProcessorを重ねるなら process-next; を使う */
-            /* process-next; */
+        /* 高速：レイヤ6がONの間だけ“追加で”処理される＝実質2倍スクロール */
+        scroller_fast {
+            layers = <6>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+            /* 必要なら別設定を付与
+               // e.g., xy-to-scroll-scale = <2>;
+            */
         };
     };
-
     /* ▲▲ 追加ここまで ▲▲ */
 };
