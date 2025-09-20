@@ -74,8 +74,6 @@
 &kp Z         &kp X         &kp C     &kp V             &kp B  &lt_to_layer_0 6 COLON      &kp B                   &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
 &kp LEFT_WIN  &kp LEFT_ALT  &kp CAPS  &kp LEFT_CONTROL  &mo 1  &kp LEFT_SHIFT              &kp RIGHT_GUI           &lt 2 SPACE                             &lt 5 ESCAPE
             >;
-
-            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
         };
 
         FUNCTION {
@@ -109,10 +107,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &mkp MB3  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB4  &mkp MB3  &mkp MB5  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &kp LC(A)  &mkp MB3  &kp LC(E)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1   &mkp MB3  &mkp MB2   &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB4   &mkp MB3  &mkp MB5   &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
             >;
         };
 
