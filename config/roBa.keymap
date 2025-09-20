@@ -63,6 +63,18 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        /* ▼ 追加：mac用「半角英数変換＋英数固定」 */
+        conv_ascii_mac: conv_ascii_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp F10          /* 未確定/選択中テキストを半角英数へ */
+                &kp LANGUAGE_2   /* 入力モードを英数に固定（EISU） */
+            >;
+            label = "CONV_ASCII_MAC";
+        };
+        /* ▲ 追加ここまで */
     };
 
     keymap {
@@ -73,7 +85,7 @@
 &kp W                  &kp E         &kp R             &kp T           &kp Y                                                            &kp Y           &kp U  &kp I      &kp O    &kp P
 &kp A                  &kp S         &kp D             &kp F           &kp G        &kp H                       &lt_to_layer_0 4 SLASH  &kp H           &kp J  &kp K      &kp L    &kp MINUS
 &mt LEFT_SHIFT Z       &kp X         &kp C             &kp V           &kp B        &lt_to_layer_0 6 COLON      &kp B                   &kp N           &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&mt LEFT_COMMAND CLCK  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LANGUAGE_2  &lt 2 SPACE  &mo 1                       &kp ENTER               &kp LANGUAGE_1                             &lt 5 ESCAPE
+&mt LEFT_COMMAND CLCK  &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac &lt 2 SPACE  &mo 1                       &kp ENTER               &kp LANGUAGE_1                             &lt 5 ESCAPE
             >;
         };
 
