@@ -82,6 +82,17 @@
             label = "CONV_HIRAGANA_MAC";
         };
 
+        // 専用: ホールド=LGUI, タップ=CapsLock（tap優先・retro-tap有効）
+        mt_gui_caps: mt_gui_caps {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_GUI_CAPS";
+            bindings = <&kp LGUI>, <&kp CAPSLOCK>;  // ← hold, tap の順
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            retro-tap;  // 短押しは離した瞬間にタップとして発火
+        };
+
         /* ▲ */
     };
 
@@ -95,7 +106,7 @@
 &kp W              &kp E         &kp R             &kp T            &kp Y                                                   &kp Y               &kp U  &kp I        &kp O    &kp P
 &kp A              &kp S         &kp D             &kp F            &kp G        &kp H                       &kp BACKSPACE  &kp H               &kp J  &kp K        &kp L    &kp MINUS
 &mt LSHIFT Z       &kp X         &kp C             &kp V            &kp B        &lt_to_layer_0 6 COLON      &kp B          &kp N               &kp M  &lt 4 COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&mt LGUI CAPSLOCK  &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mo 1                       &kp ENTER      &conv_hiragana_mac                               &lt 5 ESCAPE
+&mt_gui_caps  &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mo 1                       &kp ENTER      &conv_hiragana_mac                               &lt 5 ESCAPE
             >;
         };
 
