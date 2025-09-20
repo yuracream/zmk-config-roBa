@@ -69,10 +69,10 @@
 
         default_layer {
             bindings = <
-&kp W               &kp E         &kp R       &kp T                        &kp Y                                     &kp Y             &kp U  &lt 5 I    &kp O    &kp P
-&mt LEFT_CONTROL A  &kp S         &kp D       &kp F                        &kp G        &kp H         &kp BACKSPACE  &kp H             &kp J  &kp K      &kp L    &kp MINUS
-&mt LEFT_SHIFT Z    &kp X         &kp C       &kp V                        &kp B        &kp DEL       &lt 2 B        &kp N             &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LEFT_WIN        &kp LEFT_ALT  &kp ESCAPE  &lt_to_layer_0 2 LANGUAGE_2  &lt 2 SPACE  &mkp MB1      &kp ENTER      &lt 2 LANGUAGE_1                             &kp RIGHT_COMMAND
+&kp W               &kp E         &kp R       &kp T                        &kp Y                                     &kp Y                        &kp U  &lt 5 I    &kp O    &kp P
+&mt LEFT_CONTROL A  &kp S         &kp D       &kp F                        &kp G        &kp H         &kp BACKSPACE  &kp H                        &kp J  &kp K      &kp L    &kp MINUS
+&mt LEFT_SHIFT Z    &kp X         &kp C       &kp V                        &kp B        &kp DEL       &lt 2 B        &kp N                        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+&kp LEFT_WIN        &kp LEFT_ALT  &kp ESCAPE  &lt_to_layer_0 2 LANGUAGE_2  &lt 2 SPACE  &mkp MB1      &kp ENTER      &lt_to_layer_0 0 LANGUAGE_1                             &kp RIGHT_COMMAND
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
@@ -127,10 +127,10 @@
 
         SYMBOL {
             bindings = <
-&kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR         &kp PERCENT                                   &kp AMPERSAND  &kp SQT  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&kp LANGUAGE_1   &kp LANGUAGE_5     &kp LANG5     &kp LANG_KATAKANA  &kp LANG3    &kp LANGUAGE_4      &kp LANG2    &kp LANG1      &trans   &trans                &trans                 &trans
-&trans           &kp NUMBER_1       &kp NUMBER_2  &kp NUMBER_3       &trans       &trans              &bootloader  &trans         &trans   &trans                &trans                 &bt BT_CLR
-&trans           &trans             &trans        &trans             &trans       &trans              &trans       &trans                                                               &bt BT_CLR_ALL
+&kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR    &kp PERCENT                                   &kp AMPERSAND  &kp SQT           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &msc SCRL_UP
+&caps_word       &kp A              &kt CAPSLOCK  &lt 3 B       &mo 0        &kp LANGUAGE_4      &kp LANG2    &kp LANG1      &mmv MOVE_X(100)  &mmv MOVE_UP          &mmv MOVE_Y(100)       &msc SCRL_DOWN
+&trans           &kp NUMBER_1       &kp NUMBER_2  &kp NUMBER_3  &trans       &trans              &bootloader  &trans         &mmv MOVE_LEFT    &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &bt BT_CLR
+&trans           &trans             &trans        &trans        &trans       &trans              &trans       &trans                                                                        &bt BT_CLR_ALL
             >;
         };
 
