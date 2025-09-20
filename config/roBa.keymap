@@ -83,14 +83,15 @@
         };
 
         // 専用: ホールド=LGUI, タップ=CapsLock（tap優先・retro-tap有効）
+        /* 変更後（bindings を 1つの <> に）＋ #binding-cells を明示 */
         mt_gui_caps: mt_gui_caps {
             compatible = "zmk,behavior-hold-tap";
-            label = "MT_GUI_CAPS";
-            bindings = <&kp LGUI>, <&kp CAPSLOCK>;  // ← hold, tap の順
+            // label = "MT_GUI_CAPS";  // ← labelはdeprecatedなので消すと警告も消えます（任意）
+            #binding-cells = <2>;
+            bindings = <&kp LGUI &kp CAPSLOCK>;  // ← ひとつの <> に hold, tap の順で並べる
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            retro-tap;  // 短押しは離した瞬間にタップとして発火
+            retro-tap;
         };
 
         /* ▲ */
