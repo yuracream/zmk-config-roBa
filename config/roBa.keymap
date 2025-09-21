@@ -64,13 +64,11 @@
         };
 
         /* mac用：タップでF10→LANG2（半角英数化＋英数固定） */
+
         conv_ascii_mac: conv_ascii_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <
-                &kp F10
-                &kp LANG2
-            >;
+            bindings = <&kp F10 &kp LANG2>;
         };
     };
 
@@ -79,10 +77,10 @@
 
         default_layer {
             bindings = <
-&kp W         &kp E         &kp R     &kp T             &kp Y                                                      &kp Y        &kp U  &kp I      &kp O    &kp P
-&kp A         &kp S         &kp D     &kp F             &kp G  &kp H                       &lt_to_layer_0 4 SLASH  &kp H        &kp J  &kp K      &kp L    &kp ENTER
-&kp Z         &kp X         &kp C     &kp V             &kp B  &lt_to_layer_0 6 COLON      &kp B                   &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
-&kp LEFT_WIN  &kp LEFT_ALT  &mt LSHIFT conv_ascii_mac    &kp LEFT_CONTROL  &tog 1  &kp LEFT_SHIFT              &kp RIGHT_GUI           &lt 2 SPACE                             &lt 5 ESCAPE
+&kp W         &kp E         &kp R       &kp T             &kp Y                                                       &kp Y        &kp U  &kp I      &kp O    &kp P
+&kp A         &kp S         &kp D       &kp F             &kp G   &kp H                       &lt_to_layer_0 4 SLASH  &kp H        &kp J  &kp K      &kp L    &kp ENTER
+&kp Z         &kp X         &kp C       &kp V             &kp B   &lt_to_layer_0 6 COLON      &kp B                   &kp N        &kp M  &kp COMMA  &kp DOT  &kp BACKSPACE
+&kp LEFT_WIN  &kp LEFT_ALT  &kp LSHIFT  &kp LEFT_CONTROL  &tog 1  &kp LEFT_SHIFT              &kp RIGHT_GUI           &lt 2 SPACE                             &lt 5 ESCAPE
             >;
         };
 
