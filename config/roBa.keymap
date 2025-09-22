@@ -57,6 +57,11 @@
             bindings = <&kp DELETE>;
             key-positions = <9 8 7>;
         };
+
+        Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <20 21>;
+        };
     };
 
     macros {
