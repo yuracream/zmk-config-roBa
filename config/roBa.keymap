@@ -103,7 +103,7 @@
         conv_hiragana_mac: conv_hiragana_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp F6 &kp LANG1>;
+            bindings = <&kp F6 &kp LANG1 &to 0>;
             label = "CONV_HIRAGANA_MAC";
         };
 
