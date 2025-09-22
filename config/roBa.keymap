@@ -99,21 +99,21 @@
             >;
         };
 
+        NUMPAD {
+            bindings = <
+&kp F11  &kp F12  &kp F13  &kp F14  &kp F15                      &kp N7        &kp N8        &kp N9        &kp MINUS   &kp CARET
+&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans      &trans  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS    &kp ASTERISK
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &trans      &kp N0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp SLASH
+&trans   &trans   &trans   &trans   &trans   &trans      &trans  &trans                                                &trans
+            >;
+        };
+
         FUNCTION {
             bindings = <
 &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp LS(NUMBER_4)   &kp LS(NUMBER_5)                            &kp PLUS        &kp PIPE              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
 &kp SEMICOLON     &kp COLON         &kp SQT           &kp DOUBLE_QUOTES  &kp GRAVE         &trans      &kp ASTERISK  &kp MINUS       &kp SLASH             &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans
 &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)   &kp TILDE         &trans      &trans        &kp UNDERSCORE  &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
 &trans            &trans            &trans            &trans             &trans            &trans      &trans        &trans                                                                             &trans
-            >;
-        };
-
-        NUMPAD {
-            bindings = <
-&kp F11  &kp F12  &kp F13  &kp F14  &kp F15                         &kp N7        &kp N8        &kp N9        &kp MINUS   &kp CARET
-&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans      &trans     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp PLUS    &kp ASTERISK
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &trans      &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp SLASH
-&trans   &trans   &trans   &trans   &trans   &trans      &kp ENTER  &trans                                                &trans
             >;
         };
 
@@ -136,8 +136,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
             >;
         };
-
-        /* ====== SCROLL層（速度トグル追加） ====== */
 
         SCROLL {
             bindings = <
