@@ -111,17 +111,13 @@
         };
 
         /* ▼ Tap Dance: 単タップ=Enter / 単ホールド=conv_hiragana_mac
-           - ホールド中に他キーを押しても「修飾」にはならない（離した時に評価）
-           - 2タップなどは未定義=無効（誤爆防止のため最小構成）
+           - 状態順: SINGLE_TAP, SINGLE_HOLD の2つだけ定義
         */
         td_enter_hira: td_enter_hira {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            // 状態順: SINGLE_TAP, SINGLE_HOLD （必要な分だけ並べる）
             bindings = <&kp ENTER>, <&conv_hiragana_mac>;
-            // 任意: ホールドは離した時に実行（お好みで）
-            hold-trigger-on-release;
         };
 
         /* ▲ */
