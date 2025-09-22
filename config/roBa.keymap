@@ -65,11 +65,22 @@
 
         /* ▼ mac用：タップで“その場をF10で半角英数に変換”→英数固定（LANG2/EISU） */
 
-        conv_ascii_mac: conv_ascii_mac {
+        /* conv_ascii_mac: conv_ascii_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp F10 &kp LANG2>;
             label = "CONV_ASCII_MAC";
+        }; */
+
+        /* ▼ 先にF10→LANG2して、その後ベースへ戻る */
+        conv_ascii_mac_then_to0: conv_ascii_mac_then_to0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp F10      // その場を半角英数に変換
+                &kp LANG2    // 英数固定（EISU）
+                &to 0        // 最後にデフォルトレイヤーへ
+            >;
         };
 
         /* ▼ mac用：タップで“その場をF6でひらがな変換”→かな固定（LANG1/KANA） */
