@@ -100,16 +100,16 @@
         };
     
         /* 追加2: hold-tap（ホールド=ひらがな化、タップ=Enter）
-           ※ このZephyr版は bindings を 1つの <> にまとめ、かつ引数なしphandle推奨。
-              なので両方とも“マクロ”として渡します。順序は <HOLD TAP> */
+           順序は <HOLD TAP>。#binding-cells は 2 固定。 */
         enter_or_hira: enter_or_hira {
           compatible = "zmk,behavior-hold-tap";
-          #binding-cells = <0>;
+          #binding-cells = <2>;
           bindings = <&conv_hiragana_mac &enter_key>; /* HOLD, TAP */
           flavor = "tap-preferred";
           tapping-term-ms = <200>;
           retro-tap;
         };
+
 
         /* ▲ */
     };
