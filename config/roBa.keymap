@@ -121,16 +121,18 @@
         }
 
         /* Tap=トグル(&tog)、Hold=ワンショット層(&sl)。
-         * 引数はレイヤ番号。例：&tog_or_sl 1
+         * 引数は 2 個必要（hold用, tap用）。同じ番号を渡せばOK。
+         * 例：&tog_or_sl 1 1
          */
         tog_or_sl: tog_or_sl {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;            // レイヤ番号を両方へ渡す
-            bindings = <&sl &tog>;           // 順番は HOLD, TAP
-            flavor = "tap-preferred";        // 素早い押下はTap扱い
+            #binding-cells = <2>;         // hold/tap で 2 セル固定
+            bindings = <&sl &tog>;        // 順番は HOLD, TAP（= hold→&sl, tap→&tog）
+            flavor = "tap-preferred";     // 素早い押下はTap扱い
             tapping-term-ms = <200>;
             retro-tap;
         };
+
 
         /* ▲ */
     };
@@ -145,7 +147,7 @@
 &kp W         &kp E         &kp R             &kp T                     &kp Y                                       &kp Y      &kp U  &kp I        &kp O         &kp P
 &kp A         &kp S         &kp D             &kp F                     &kp G        &kp H           &tog 3         &kp H      &kp J  &kp K        &kp L         &kp MINUS
 &mt LSHIFT Z  &kp X         &kp C             &kp V                     &kp B        &kp ESCAPE      &kp B          &kp N      &kp M  &lt 4 COMMA  &lt 5 PERIOD  &mt RIGHT_SHIFT SLASH
-&kp LGUI      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mkp MB1        &kp ENTER  &conv_hiragana_mac                                        &tog_or_sl 1
+&kp LGUI      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mkp MB1        &kp ENTER  &conv_hiragana_mac                                        &tog_or_sl 1 1
             >;
         };
 
