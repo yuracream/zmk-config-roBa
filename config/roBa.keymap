@@ -68,12 +68,12 @@
         /* conv_ascii_mac: conv_ascii_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp F10 &kp LANG2>;
+            bindings = <&kp F10 &kp LANG2 &to 0>;
             label = "CONV_ASCII_MAC";
         }; */
 
         /* ▼ 先にF10→LANG2して、その後ベースへ戻る */
-        conv_ascii_mac_then_to0: conv_ascii_mac_then_to0 {
+        /* conv_ascii_mac_then_to0: conv_ascii_mac_then_to0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <
@@ -81,7 +81,7 @@
                 &kp LANG2    // 英数固定（EISU）
                 &to 0        // 最後にデフォルトレイヤーへ
             >;
-        };
+        }; */
 
         /* ▼ mac用：タップで“その場をF6でひらがな変換”→かな固定（LANG1/KANA） */
 
