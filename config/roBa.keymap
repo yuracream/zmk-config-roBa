@@ -118,7 +118,8 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp ENTER>, <&conv_hiragana_mac>;
-        }
+        };
+
 
         /* Tap=トグル(&tog)、Hold=ワンショット層(&sl)。
          * 引数は 2 個必要（hold用, tap用）。同じ番号を渡せばOK。
