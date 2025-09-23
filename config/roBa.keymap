@@ -45,7 +45,7 @@
 
         Escape {
             bindings = <&kp ESCAPE>;
-            key-positions = <0 2>;
+            key-positions = <0 2 1>;
         };
 
         Backspace {
