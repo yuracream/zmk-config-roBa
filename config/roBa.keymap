@@ -214,10 +214,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &kp R   &kp LG(LEFT_BRACKET)  &kp F5    &kp LG(RIGHT_BRACKET)  &kp RIGHT_ARROW
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &kp F   &mkp MB1              &mkp MB3  &mkp MB2               &kp LEFT_ARROW
-&trans  &trans  &trans  &trans  &trans  &trans      &kp S   &kp D   &kp LC(LEFT_ARROW)    &kp F2    &kp LC(RIGHT_ARROW)    &kp RIGHT_BRACE
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                         &kp SEMICOLON
+&trans  &trans  &trans  &trans  &trans                      &kp R   &kp LG(LEFT_BRACKET)  &kp LG(T)  &kp LG(RIGHT_BRACKET)  &kp RIGHT_ARROW
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &kp F   &mkp MB1              &mkp MB3   &mkp MB2               &kp LEFT_ARROW
+&trans  &trans  &trans  &trans  &trans  &trans      &kp S   &kp D   &kp LC(LEFT_ARROW)    &kp LG(W)  &kp LC(RIGHT_ARROW)    &kp RIGHT_BRACE
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                          &kp SEMICOLON
             >;
         };
 
