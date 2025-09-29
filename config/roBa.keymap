@@ -206,18 +206,9 @@
         SYMBOL {
             bindings = <
 &kp EXCLAMATION  &kp AT_SIGN    &kp HASH       &kp DOLLAR     &kp PERCENT                                      &kp CARET      &kp AMPERSAND  &kp MINUS      &kp LCTRL    &kp NON_US_BACKSLASH
-&to_or_sl 0 0    &to_or_sl 1 1  &to_or_sl 2 2  &to_or_sl 3 3  &to_or_sl 4 4  &to_or_sl 5 5      &to_or_sl 6 6  &to_or_sl 7 7  &trans         &trans         &kp AT_SIGN  &kp LEFT_BRACKET
+&to_or_sl 0 0    &to_or_sl 1 1  &to_or_sl 2 2  &to_or_sl 4 4  &to_or_sl 3 3  &to_or_sl 5 5      &to_or_sl 6 6  &to_or_sl 7 7  &trans         &trans         &kp AT_SIGN  &kp LEFT_BRACKET
 &trans           &trans         &trans         &trans         &trans         &trans             &trans         &trans         &trans         &kp SEMICOLON  &kp COLON    &kp RIGHT_BRACKET
 &trans           &trans         &trans         &trans         &trans         &trans             &trans         &trans                                                    &trans
-            >;
-        };
-
-        ARROW {
-            bindings = <
-&trans          &trans  &trans  &kp LC(TAB)  &trans                             &kp LG(LEFT_BRACKET)  &kp F2          &kp LG(RIGHT_BRACKET)  &kp HOME   &kp PAGE_UP
-&trans          &trans  &trans  &mkp MB1     &mkp MB2  &mkp MB3      &trans     &kp LC(LEFT_ARROW)    &kp UP_ARROW    &kp LC(RIGHT_ARROW)    &kp END    &kp PAGE_DOWN
-&kp LEFT_SHIFT  &trans  &trans  &mkp MB4     &mkp MB5  &trans        &kp LC(A)  &kp LEFT_ARROW        &kp DOWN_ARROW  &kp RIGHT_ARROW        &kp LC(E)  &trans
-&trans          &trans  &trans  &trans       &trans    &trans        &trans     &trans                                                                  &trans
             >;
         };
 
@@ -227,6 +218,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &kp F   &mkp MB1              &mkp MB3  &mkp MB2               &kp LEFT_ARROW
 &trans  &trans  &trans  &trans  &trans  &trans      &kp S   &kp D   &kp LC(LEFT_ARROW)    &kp F2    &kp LC(RIGHT_ARROW)    &kp RIGHT_BRACE
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                         &kp PLUS
+            >;
+        };
+
+        ARROW {
+            bindings = <
+&trans          &trans  &trans  &kp LC(TAB)  &trans                             &kp LG(LEFT_BRACKET)  &kp F2          &kp LG(RIGHT_BRACKET)  &kp HOME   &kp PAGE_UP
+&trans          &trans  &trans  &mkp MB1     &mkp MB2  &mkp MB3      &trans     &kp LC(LEFT_ARROW)    &kp UP_ARROW    &kp LC(RIGHT_ARROW)    &kp END    &kp PAGE_DOWN
+&kp LEFT_SHIFT  &trans  &trans  &mkp MB4     &mkp MB5  &trans        &kp LC(A)  &kp LEFT_ARROW        &kp DOWN_ARROW  &kp RIGHT_ARROW        &kp LC(E)  &trans
+&trans          &trans  &trans  &trans       &trans    &trans        &trans     &trans                                                                  &trans
             >;
         };
 
