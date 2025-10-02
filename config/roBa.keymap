@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/input_transform.h>
+
 
 &mt {
     flavor = "balanced";
@@ -253,15 +255,20 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
+    
+        /* レイヤ5 = 追加マッピング + 反転  */
         scroller_fast {
             layers = <5>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-
-            /* 必要なら倍率を個別に微調整：
-             *   xy-to-scroll-scale = <2>;
-             * 省略時は“追加”のぶん1倍 = 合計2倍の体感になります。
-             */
+            /* XY→スクロール変換 → 縦スクロールだけ反転（Y） */
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
+            >;
+            /* 必要なら加速を別で足す:
+               # 例) &zip_scroll_scaler (2 1) で2倍
+               # → 追加する場合は zip_scroll_transform の前/後どちらでもOK
+            */
         };
     };
+
 };
