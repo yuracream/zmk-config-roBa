@@ -216,7 +216,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                      &kp F5                  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp LC(LS(TAB))  &kp LC(TAB)
 &trans  &trans  &trans  &trans  &trans  &trans      &trans                  &kp T                   &mkp MB1        &mkp MB2         &kp P            &kp LEFT_BRACKET
-&trans  &trans  &trans  &trans  &trans  &trans      &kp W                   &kp C                   &kp V           &trans           &trans           &kp RIGHT_BRACKET
+&trans  &trans  &trans  &trans  &trans  &trans      &kp W                   &kp E                   &kp F           &trans           &trans           &kp RIGHT_BRACKET
 &trans  &trans  &trans  &trans  &trans  &trans      &mt LEFT_CONTROL ENTER  &mt LEFT_COMMAND SPACE                                                    &kp SEMICOLON
             >;
         };
