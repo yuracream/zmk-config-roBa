@@ -11,17 +11,6 @@
     quick-tap-ms = <175>;   /* 誤爆低減のため 0→175ms に調整 */
 };
 
-&trackball {
-    // automouse-layer = <4>; // 使わない
-    /* ▼▼ レイヤー4が有効の間はXYを“確実に”スクロールへ変換（低速の土台） ▼▼ */
-
-    scroll-layers = <4>;
-
-    // ↑ これで layer=4 で必ずスクロール化される。カーソル移動にはならない。
-    // （レイヤー5の倍速は下の input-listener 側で“追加”処理）
-    // arrows {...} // 使わないので省略
-};
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -247,28 +236,30 @@
         };
     };
 
-    /* ▼▼ 入力リスナ：XY→スクロール“倍速”をレイヤ5で追加 ▼▼
-     * レイヤ4の低速スクロールは &trackball.scroll-layers=<4> で既に有効。
-     * ここはレイヤ5がONの間だけ同じ変換を“追加”して、実質2倍にする。
-     */
-
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
     
-        /* レイヤ5 = 追加マッピング + 反転  */
+        /* 基準スクロール：レイヤ4“にも”適用。
+         * さらにレイヤ5でも生きるよう <4 5> にしておく（5では合算で倍速になる）
+         */
+        scroller_slow {
+            layers = <4 5>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+            /* 必要なら微調整:
+             * // xy-to-scroll-scale = <1>;
+            */
+        }
+    
+        /* 追加（倍速）: レイヤ5にだけ“もう1本”同じ変換をかける */
         scroller_fast {
             layers = <5>;
-            /* XY→スクロール変換 → 縦スクロールだけ反転（Y） */
-            input-processors = <
-                &zip_xy_to_scroll_mapper
-                &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
-            >;
-            /* 必要なら加速を別で足す:
-               # 例) &zip_scroll_scaler (2 1) で2倍
-               # → 追加する場合は zip_scroll_transform の前/後どちらでもOK
+            input-processors = <&zip_xy_to_scroll_mapper>;
+            /* さらに速くしたい場合のみ、スケーラを追加（例）
+             * // &zip_scroll_scaler (2 1)
             */
         };
     };
+
 
 };
