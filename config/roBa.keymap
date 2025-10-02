@@ -12,7 +12,9 @@
 &trackball {
     // automouse-layer = <4>; // 使わない
     /* ▼▼ レイヤー4が有効の間はXYを“確実に”スクロールへ変換（低速の土台） ▼▼ */
+
     scroll-layers = <4>;
+
     // ↑ これで layer=4 で必ずスクロール化される。カーソル移動にはならない。
     // （レイヤー5の倍速は下の input-listener 側で“追加”処理）
     // arrows {...} // 使わないので省略
@@ -72,11 +74,13 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
+
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
 
         /* ▼ mac用：タップで“その場をF10で半角英数に変換”→英数固定（LANG2/EISU） */
+
         conv_ascii_mac: conv_ascii_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -84,6 +88,7 @@
         };
 
         /* ▼ mac用：タップで“その場をF6でひらがな変換”→かな固定（LANG1/KANA） */
+
         conv_hiragana_mac: conv_hiragana_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -92,6 +97,7 @@
         };
 
         /* 追加1: ただの Enter */
+
         enter_key: enter_key {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -99,6 +105,7 @@
         };
 
         /* 追加2: hold-tap（ホールド=ひらがな化、タップ=Enter） */
+
         enter_or_hira: enter_or_hira {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -109,6 +116,7 @@
         };
 
         /* Tap Dance: 単タップ=Enter / 単ホールド=conv_hiragana_mac */
+
         td_enter_hira: td_enter_hira {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -117,6 +125,7 @@
         };
 
         /* Tap=トグル(&tog)、Hold=ワンショット層(&sl) */
+
         tog_or_sl: tog_or_sl {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -127,6 +136,7 @@
         };
 
         /* Tap=そのレイヤへ移動(&to)、Hold=ワンショット(&sl) */
+
         to_or_sl: to_or_sl {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -137,6 +147,7 @@
         };
 
         /* Tap = 任意キー, Hold = 指定レイヤへ移動（&to） */
+
         lt_to: lt_to {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;         /* 第1引数=レイヤ番号, 第2引数=タップ時キー */
@@ -163,27 +174,27 @@
 
         default_layer {
             bindings = <
-&kp W         &kp E         &kp R             &kp T            &kp Y                                           &kp Y               &kp U  &kp I           &kp O         &kp P
-&kp A         &kp S         &kp D             &kp F            &kp G        &kp H              &to_or_sl 3 3   &kp H               &kp J  &kp K           &kp L         &kp MINUS
-&mt LSHIFT Z  &kp X         &kp C             &kp V            &kp B        &kp BACKSPACE      &kp B           &kp N               &kp M  &lt_to 4 COMMA    &lt 5 PERIOD   &mt RIGHT_SHIFT SLASH
-&kp LGUI      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE    &mkp MB1           &lt_to 1 ENTER    &conv_hiragana_mac                                       &to_or_sl 1 1
+&kp W         &kp E         &kp R             &kp T            &kp Y                                           &kp Y               &kp U  &kp I        &kp O         &kp P
+&kp A         &kp S         &kp D             &kp F            &kp G        &kp H              &to_or_sl 3 3   &kp H               &kp J  &kp K        &kp L         &kp MINUS
+&mt LSHIFT Z  &kp X         &kp C             &kp V            &kp B        &kp BACKSPACE      &kp B           &kp N               &kp M  &lt 4 COMMA  &lt 5 PERIOD  &mt RIGHT_SHIFT SLASH
+&kp LGUI      &kp LEFT_ALT  &kp LEFT_CONTROL  &conv_ascii_mac  &lt 2 SPACE  &mkp MB1           &lt_to 1 ENTER  &conv_hiragana_mac                                    &to_or_sl 1 1
             >;
         };
 
         NUM {
             bindings = <
 &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH       &kp DOLLAR    &kp PERCENT                                &kp AMPERSAND  &kp SQT               &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL
-&kp NUMBER_1     &kp NUMBER_2       &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6      &trans          &kp NUMBER_6         &kp NUMBER_7          &kp NUMBER_8           &kp NUMBER_9          &kp NUMBER_0
-&kp LEFT_SHIFT   &kp AT_SIGN        &kp SEMICOLON  &kp COLON     &kp ASTERISK  &trans            &kp GRAVE       &kp CARET            &kp NON_US_BACKSLASH  &kp LEFT_BRACKET       &kp RIGHT_BRACKET     &kp RIGHT_SHIFT
-&trans           &trans             &trans         &trans        &trans        &trans            &trans          &trans                                                                            &trans
+&kp NUMBER_1     &kp NUMBER_2       &kp NUMBER_3   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6      &trans     &kp NUMBER_6   &kp NUMBER_7          &kp NUMBER_8          &kp NUMBER_9           &kp NUMBER_0
+&kp LEFT_SHIFT   &kp AT_SIGN        &kp SEMICOLON  &kp COLON     &kp ASTERISK  &trans            &kp GRAVE  &kp CARET      &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_SHIFT
+&trans           &trans             &trans         &trans        &trans        &trans            &trans     &trans                                                                            &trans
             >;
         };
 
         SYMBOL {
             bindings = <
 &kp EXCLAMATION  &kp AT_SIGN    &kp HASH       &kp DOLLAR     &kp PERCENT                                      &kp CARET      &kp AMPERSAND  &kp MINUS      &kp LCTRL    &kp NON_US_BACKSLASH
-&to_or_sl 0 0    &to_or_sl 1 1  &to_or_sl 2 2  &to_or_sl 5 5  &to_or_sl 3 3  &to_or_sl 4 4      &to_or_sl 6 6  &to_or_sl 7 7        &trans               &trans               &kp AT_SIGN  &kp LEFT_BRACKET
-&trans           &trans         &trans         &trans         &trans         &trans             &trans         &trans               &trans               &kp SEMICOLON        &kp COLON    &kp RIGHT_BRACKET
+&to_or_sl 0 0    &to_or_sl 1 1  &to_or_sl 2 2  &to_or_sl 5 5  &to_or_sl 3 3  &to_or_sl 4 4      &to_or_sl 6 6  &to_or_sl 7 7  &trans         &trans         &kp AT_SIGN  &kp LEFT_BRACKET
+&trans           &trans         &trans         &trans         &trans         &trans             &trans         &trans         &trans         &kp SEMICOLON  &kp COLON    &kp RIGHT_BRACKET
 &trans           &trans         &trans         &trans         &trans         &trans             &trans         &trans                                                    &trans
             >;
         };
@@ -238,6 +249,7 @@
      * レイヤ4の低速スクロールは &trackball.scroll-layers=<4> で既に有効。
      * ここはレイヤ5がONの間だけ同じ変換を“追加”して、実質2倍にする。
      */
+
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -245,6 +257,7 @@
         scroller_fast {
             layers = <5>;
             input-processors = <&zip_xy_to_scroll_mapper>;
+
             /* 必要なら倍率を個別に微調整：
              *   xy-to-scroll-scale = <2>;
              * 省略時は“追加”のぶん1倍 = 合計2倍の体感になります。
