@@ -259,31 +259,22 @@
     };
 
     /* ▼▼ 入力リスナ：XY→スクロール変換（レイヤ5=低速 / レイヤ6=高速“加算”） ▼▼ */
-
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-
-        /* 低速（デフォルト） */
-
+    /* 既存の trackball_listener を置き換え or 追記 */
+    &trackball_listener {
+        /* 親には base を置かない：通常時はXYのまま動かす */
+    
+        /* 低速（レイヤー4がONなら XY→スクロールに変換） */
         scroller_slow {
             layers = <4>;
             input-processors = <&zip_xy_to_scroll_mapper>;
-
-            /* 必要なら↓にスケール等のプロパティを追加
-               // e.g., xy-to-scroll-scale = <1>;
-            */
+            process-next;   /* ← これがミソ：後段の倍率も適用させる */
         };
-
-        /* 高速：レイヤ5がONの間だけ“追加で”処理される＝実質2倍スクロール */
-
+    
+        /* 高速ブースト（レイヤー5がONならスクロール値を2倍に） */
         scroller_fast {
             layers = <5>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-
-            /* 必要なら別設定を付与
-               // e.g., xy-to-scroll-scale = <2>;
-            */
+            input-processors = <&zip_scroll_scaler 2 1>;
+            /* process-next は不要。ここで終わりでOK */
         };
     };
 
