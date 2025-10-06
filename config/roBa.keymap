@@ -247,6 +247,7 @@
         input-processors = <
           &zip_xy_to_scroll_mapper
           &zip_scroll_scaler 1 10                  // ← ここで“遅く”する
+          &zip_scroll_scaler 1 4    /* さらに 1/4 → 合計 1/40 */
           &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
         >;
       };
