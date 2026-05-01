@@ -6,7 +6,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 
-
 &mt {
     flavor = "balanced";
     quick-tap-ms = <175>;   /* 誤爆低減のため 0→175ms に調整 */
